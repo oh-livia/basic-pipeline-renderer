@@ -14,7 +14,8 @@ Bezier Curve:
 ~Then, the points of the bezier curve are given such that every three floats across a line is a new point along u, and every new line marks a new v value. The u points increase left to right, and the v points increase bottom to top.
 
 To compile:
-type make
+On a Mac, type make glrender_os
+Otherwise, type make glrender_pc
 
 To run:
 Type ./glrender [txt file]
