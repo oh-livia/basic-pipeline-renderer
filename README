@@ -17,7 +17,7 @@ To compile:
 type make
 
 To run:
-Give as the single command-line argument the name of one of the text files
+Type ./glrender [txt file]
 Click and drag the mouse to rotate the object
 q or Q: quit the program
 r: reset the position of the object
