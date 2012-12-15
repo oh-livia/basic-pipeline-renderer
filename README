@@ -1,7 +1,7 @@
 README for glrender
 By Olivia Winn
 
-    This program is a basic pipeline renderer, done for the Computer Graphics class at Columbia. We wrote our programs not in the modle of fixed pipelines, but after the newer, flexible, and faster programmable pipeline model. The program can render object files that are either lists of vertices and triangle ids, or bezier curves, in the format given below:
+    This program is a basic pipeline renderer, done for the Computer Graphics class at Columbia. We wrote our programs not in the modle of fixed pipelines, but after the newer, flexible, and faster programmable pipeline model. The program can render object files that are either lists of vertices and triangle ids, or bezier curves, as a crystal ball interface given the format given below:
 
 OBJ file:
 ~Vertex points are preceded by a v, and the next three floats are taken as the x, y, and z values respectively.
