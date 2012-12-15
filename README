@@ -5,7 +5,7 @@ By Olivia Winn
 
 OBJ file:
 ~Vertex points are preceded by a v, and the next three floats are taken as the x, y, and z values respectively.
-~After all the vertices are listed, the triangles are given. Each triangle is given in a line with a t at the beginning, and the next three integers are the numbers of the vertices (in counterclockwise order) that make up the triangle. The vertices are counted starting at index 1
+~After all the vertices are listed, the faces of each triangle are given. Each triangle is given in a line with a f at the beginning, and the next three integers are the indices of the vertices (in counterclockwise order) that make up the triangle. The vertices are counted starting at index 1
 ~Any comments are preceded by a # on the same line, and blank lines are ignored
 
 Bezier Curve:
