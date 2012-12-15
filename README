@@ -13,9 +13,11 @@ Bezier Curve:
 ~First, two integers are given separated by white space: the u degree and v degree of the bezier curve
 ~Then, the points of the bezier curve are given such that every three floats across a line is a new point along u, and every new line marks a new v value. The u points increase left to right, and the v points increase bottom to top.
 
-    There are a couple of example object files included to give a sense of what the renderer can do. The renderer is run in the following manner:
-The object file is given as the single command-line argument
-Special functions:
+To compile:
+type make
+
+To run:
+Give as the single command-line argument the name of one of the text files
 Click and drag the mouse to rotate the object
 q or Q: quit the program
 r: reset the position of the object
@@ -25,5 +27,5 @@ s: switch between continuous orange coloring and a 3D black-white checkerboard t
 t: increase the density of the checkerboard
 g: decrease the density of the checkerboard
 <: for bezier curves, decrease the sample number
->: for bezier cirves, increase the sample number
+>: for bezier curves, increase the sample number
 
