@@ -7,6 +7,9 @@
 //
 // Basic parser for the wavefront files, stolen from raytracer:
 //
-void read_wavefront_file (const char *file);//, std::vector< int > &tris, std::vector< float > &verts);
+void read_wavefront_file (
+            const char *file,
+            std::vector< int > &tris,
+            std::vector< float > &verts);
 
 #endif

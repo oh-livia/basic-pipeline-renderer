@@ -3,9 +3,8 @@
 
 #include <sstream>
 #include <fstream>
-#include "bezObj.h"
 
-extern std::vector<bezObj *> objs;
+
 
 using namespace std;
 
@@ -20,92 +19,16 @@ using namespace std;
 // The ith triangle has vertices verts[3*i], verts[3*i+1], and verts[3*i+2],
 // given in counterclockwise order with respect to the surface normal
 //
-void read_wavefront_file (const char *file)//, std::vector< int > &tris, std::vector< float > &verts)
+void read_wavefront_file (
+    const char *file,
+    std::vector< int > &tris,
+    std::vector< float > &verts)
 {
     
-    ifstream in(file);
-    char buffer[1025];
-    string cmd;
-    int noObj;
-    int objOn = 0;
-    int lineAt;
-    bool readUVNum = false;
-    int u_deg, v_deg;
-    vec4 **points;
-    
-    int largestCoord; //This is to determine if an object has to be scaled to fit 2x2
-    
-    
-    for (int line=1; in.good(); line++) {
-        in.getline(buffer,1024);
-        buffer[in.gcount()]=0;
-        
-        istringstream iss (buffer);
-        if (line == 1){
-            iss >> noObj;
-            readUVNum = true;
-        }
-        else if (readUVNum)
-        {
-            iss >> u_deg >> v_deg;
-            bezObj *bezierObj = new bezObj();
-            bezierObj->setUV(u_deg, v_deg);
-            objs.push_back(bezierObj);
-            
-            points = new vec4*[v_deg+1];
-            for (int i = 0; i < v_deg+1; i++)
-                points[i] = new vec4[u_deg+1];
-            lineAt = v_deg;
-            
-            largestCoord = 0;
-            
-            readUVNum = false;
-        }
-        else {
-            for (int i = 0; i < u_deg+1; i++)
-            {
-                double x, y, z;
-                iss >> x >> y >> z;
-                
-                //Save largest value
-                if (abs(x) > largestCoord)
-                    largestCoord = abs(x);
-                if (abs(y) > largestCoord)
-                    largestCoord = abs(y);
-                if (abs(z) > largestCoord)
-                    largestCoord = abs(z);
-                
-                points[lineAt][i] = vec4(x, y, z, 1);
-            }
-            --lineAt;
-            if (lineAt < 0)
-            {
-                if (largestCoord > 1)
-                {
-                    for (int i = 0; i < u_deg+1; ++i)
-                        for (int j = 0; j < v_deg+1; ++j)
-                        {
-                            points[j][i] = (0.99/largestCoord) * points[j][i];
-                            points[j][i].w = 1.;
-                        }
-                }
-                objs[objOn]->setPoints(points);
-                objOn++;
-                readUVNum = true;
-            }
-        }
-        
-    }
-    
-    
-    
-    in.close();
+    // clear out the tris and verts vectors:
+    tris.clear ();
+    verts.clear ();
 
-    
-/*    
-    tris.clear();
-    verts.clear();
-    
     ifstream in(file);
     char buffer[1025];
     string cmd;
@@ -160,7 +83,6 @@ void read_wavefront_file (const char *file)//, std::vector< int > &tris, std::ve
     
     std::cout << "found this many tris, verts: " << tris.size () / 3.0 << "  " 
               << verts.size () / 3.0 << std::endl;
-  */   
-     
 }
+
 
