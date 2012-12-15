@@ -29,3 +29,22 @@ g: decrease the density of the checkerboard
 <: for bezier curves, decrease the sample number
 >: for bezier curves, increase the sample number
 
+Files:
+amath.h, mat.t, vec.g, checkerror.h
+    All math functions necessary for pipeline (vectors, matrices, transformations, etc)
+bunny_regular_small.obj.txt
+    A regular object file of a small bunny that can be rendered as a command-line argument
+bez.txt
+    Two simple bezier curves that can be rendered as a command-line argument
+bezObj.cc, bezObj.h
+    A bezier object class that holds the u and v coordinates of the bezier surface, and can compute a given number of samples (at the very least computes as many samples as the product of u and v degrees), outputting the corresponding triangles and normals
+initShader.cpp
+    Initialized the glsl vertex and fragment shaders
+vshader_passthrough.glsl
+    Vertex shader that handles rendering on the vertex level
+fshader_passthrough.glsl
+    Fragment shader that handles rendering on the fragment (pixel) level
+glrender.cc
+    Main program - initializes all of the OpenGL and glut components, opens and reads the file, computes all of the vertices and normals and sends them to the shaders. It also handles user input such as mouse movements and keys.
+parse_obj.cc, parse_obj.h
+    The prototype of and the function that reads the file, determines what kind of object it is, and interprets and saves the data accordingly
