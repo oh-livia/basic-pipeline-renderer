@@ -1,0 +1,29 @@
+README for glrender
+By Olivia Winn
+
+    This program is a basic pipeline renderer, done for the Computer Graphics class at Columbia. We wrote our programs not in the modle of fixed pipelines, but after the newer, flexible, and faster programmable pipeline model. The program can render object files that are either lists of vertices and triangle ids, or bezier curves, in the format given below:
+
+OBJ file:
+~Vertex points are preceded by a v, and the next three floats are taken as the x, y, and z values respectively.
+~After all the vertices are listed, the triangles are given. Each triangle is given in a line with a t at the beginning, and the next three integers are the numbers of the vertices (in counterclockwise order) that make up the triangle. The vertices are counted starting at index 1
+~Any comments are preceded by a # on the same line, and blank lines are ignored
+
+Bezier Curve:
+~The first line is a single digit, which is the number of separate bezier curves the file holds, after which the bezier curves are described in the following manner
+~First, two integers are given separated by white space: the u degree and v degree of the bezier curve
+~Then, the points of the bezier curve are given such that every three floats across a line is a new point along u, and every new line marks a new v value. The u points increase left to right, and the v points increase bottom to top.
+
+    There are a couple of example object files included to give a sense of what the renderer can do. The renderer is run in the following manner:
+The object file is given as the single command-line argument
+Special functions:
+Click and drag the mouse to rotate the object
+q or Q: quit the program
+r: reset the position of the object
+z: zoom in to the object
+x: zoom out from the object
+s: switch between continuous orange coloring and a 3D black-white checkerboard texture
+t: increase the density of the checkerboard
+g: decrease the density of the checkerboard
+<: for bezier curves, decrease the sample number
+>: for bezier cirves, increase the sample number
+
